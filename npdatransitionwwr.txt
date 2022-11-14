@@ -1,0 +1,26 @@
+//Transition function for the npda
+/ to accept the language l = {ww^r}
+
+//push w
+q0.a.z=q0.az
+q0.b.z=q0.bz
+q0.a.a=q0.aa
+q0.a.b=q0.ab
+q0.b.a=q0.ba
+q0.b.b=q0.bb
+
+//guess middle
+q0.*.a=q1.a
+q0.*.b=q1.b
+
+//match w
+q1.a.a=q1.*
+q1.b.b=q1.*
+
+//q2 Trans
+q1.*.z=q2.z
+
+//final state status
+q0=reject
+q1=reject
+q2=accept
